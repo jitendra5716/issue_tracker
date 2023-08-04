@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="/css/detailsPage.css">
+<div class="outerDiv">
+
+
+<div class="detailsOuterDiv">
+    <h1>
+        <%= project.name %>
+    </h1>
+    <p>
+        <%= project.description %>
+    </p>
+    <h3>
+        <%=project.author %>
+    </h3>
+
+    
+</div>
+
+
+<!-- <div class="filterDiv">
+    <h3 style="text-align: center;">filter</h3>
+    <form method="get" action="/projects/details/?project_id=<%=project.id %>">
+    <div>
+        <div>
+            <input id="ui-improvement" type="checkbox" name="UI-Improvement" value="UI-Improvement">
+            <label for="ui-improvement">UI-Improvement</label><br>
+        </div>
+        <div>
+            <input id="documentation" type="checkbox" name="documentation" value="documentation">
+            <label for="documentation">Documentation</label><br>
+        </div>
+        <div>
+            <input id="enhancement" type="checkbox" name="enhancement" value="enhancement">
+            <label for="enhancement">Enhancement</label><br>
+        </div>
+        <div>
+            <input id="duplicate" type="checkbox" name="duplicate" value="duplicate">
+            <label for="duplicate">Duplicate</label><br>
+        </div>
+        <div>
+            <input id="syntax-error" type="checkbox" name="syntax-error" value="syntax-error">
+            <label for="syntax-error">Syntax-Error</label><br>
+        </div>
+        
+    </div>
+    <hr>
+    <div>
+        <label for="author"><h6>Author's Name</h6></label>
+        <input id="author" type="text" name="author" placeholder="Enter Auther's Name:">
+    </div>
+    <hr>
+    <div>
+        <label for="title"><h6>Title</h6></label> <br>
+        <input id="title" type="text" name="title" placeholder="Enter Title of Bugs">
+    </div>
+    <hr>
+    <div>
+        <label for="description"><h6>Description</h6></label>
+        <input id="description" type="text" name="description" placeholder="Enter Description of bugs">
+    </div>
+    <hr>
+    <input type="hidden" name="project_id" value="<%=project._id %>">
+    <button id="searchBtn" type="submit">Search</button>
+    
+</form>
+</div> -->
+
+<div class="bugsOuterDiv">
+    <ul>
+       <% for(let bug of project.bugs){%>
+            <li class="bugList">
+                <p>
+                    <%= bug.title %><br/>
+                    <small>
+                        <%= bug.description %>
+                    </small>
+                </p>
+                <p>
+                    <%= bug.author %>
+                </p>
+            </li>
+       <%}%>
+    </ul>
+</div>
+
+
+</div>
+<script src="/js/detailsPage.js"></script>

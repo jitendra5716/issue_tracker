@@ -1,0 +1,81 @@
+body{
+    /* background-color: white; */
+    /* color: black; */
+    text-align: left;
+    
+}
+.projectsOuterDiv{
+    height: auto;
+    width: 50%;
+    /* border: 2px solid red; */
+    margin: 20px auto 80px ;
+    
+}
+h2{
+    text-align: center;
+    margin-top: 20px;
+}
+.projectsOuterDiv ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: inherit;
+    width: 100%;
+    padding-left: 0px;
+}
+.projectsOuterDiv ul li{
+    height: 10vh;
+    width: 100%;
+    list-style: none;
+    background-color: lightblue;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.projectsOuterDiv ul li p{
+    margin: 0px;
+    padding: 0px;
+}
+.projectsOuterDiv ul li h4{
+    margin-left: -30px;
+}
+.projectsOuterDiv ul li button{
+    height: 2.4rem;
+    width: 8rem;
+    border: none;
+    outline: none;
+    background-color: midnightblue;
+    color: white;
+    cursor: pointer;
+}
+.projectsOuterDiv ul li button a{
+    text-decoration: none;
+    color: white;
+}
+.projectsOuterDiv ul li button:active{
+    transform: scale(0.98);
+}
+.projectsOuterDiv ul li button:hover{
+    background-color: blue;
+}
+.iconDiv{
+    height: inherit;
+    width: 30%;
+    /* border: 2px solid green; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: -50px;
+}
+.imgDiv a{
+    height: 30px;
+    width: 30px;
+    
+}
+.imgDiv img{
+    height: inherit;
+    width: inherit;
+    cursor: pointer;
+}

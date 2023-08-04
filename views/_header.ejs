@@ -1,0 +1,107 @@
+
+<nav class="navbar navbar-expand-lg bg-dark ">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light ms-3" href="/">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-light" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">Link</a>
+          </li>
+          
+          
+        </ul>
+        <% if(locals.project){%>
+          <button type="button" class="btn btn-light me-4" data-bs-toggle="modal" data-bs-target="#createBugs" data-bs-whatever="@fat">Create Bugs</button>
+        <%}else{%>
+          <button type="button" class="btn btn-light me-4" data-bs-toggle="modal" data-bs-target="#createProject" data-bs-whatever="@fat">Create Project</button>
+        <%}%>
+        
+          <div class="modal fade" id="createProject" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">New Project</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form method="post" action="/projects/create">
+                    <div class="mb-1">
+                      <label for="recipient-name" class="col-form-label">Project Name:</label>
+                      <input type="text" name="name" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="mb-1">
+                      <label for="message-text" class="col-form-label">Description:</label>
+                      <textarea name="description" class="form-control" id="message-text"></textarea>
+                    </div>
+                    <div class="mb-1">
+                      <label for="recipient-name" class="col-form-label">Author:</label>
+                      <input type="text" name="author" class="form-control" id="recipient-name">
+                    </div>
+                    <!-- <button type="submit" class="btn btn-primary">Create Project</button> -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Create Project</button>
+                    </div>
+                  </form>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="createBugs" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">New Bugs</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form method="post" action="/bugs/create">
+                    <div class="mb-1">
+                      <label for="recipient-name" class="col-form-label">Bugs Title:</label>
+                      <input type="text" name="title" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="mb-1">
+                      <label for="message-text" class="col-form-label">Description:</label>
+                      <textarea name="description" class="form-control" id="message-text"></textarea>
+                    </div>
+                    <div class="mb-1">
+                      <label for="recipient-name" class="col-form-label">Labels:</label>
+                      <select id="recipient-name" name="labels">
+                        <option value="UI-Improvement">UI-Improvement</option>
+                        <option value="Documentation">Documentation</option>
+                        <option value="Enhancement">Enhancement</option>
+                        <option value="Duplicate">Duplicate</option>
+                        <option value="Syntax-Error">Syntax Error</option>
+                      </select>
+                    </div>
+                    <div class="mb-1">
+                      <label for="recipient-name" class="col-form-label">Author:</label>
+                      <input type="text" name="author" class="form-control" id="recipient-name">
+                      <% if(locals.project){%>
+                        <input type="hidden" name="project" value="<%=project.id %>">
+                      <%}else{%>
+
+                      <%}%>
+                     
+                    </div>
+                    <!-- <button type="submit" class="btn btn-primary">Create Project</button> -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Create Bug</button>
+                    </div>
+                  </form>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </nav>
